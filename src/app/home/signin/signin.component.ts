@@ -2,7 +2,6 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth/auth.service';
-import { PlatformDetectorService } from 'src/app/core/plataform-detector/plataform-detector.service';
 
 @Component({
     templateUrl: './signin.component.html'
@@ -10,13 +9,13 @@ import { PlatformDetectorService } from 'src/app/core/plataform-detector/platafo
 export class SignInComponent implements OnInit {
 
     loginForm: FormGroup;
-    @ViewChild('userNameInput') userNameInput: ElementRef<HTMLInputElement>;
+    platformDetectorService: any;
+    userNameInput: any;
 
     constructor(
         private formBuilder: FormBuilder,
         private authService: AuthService,
-        private router: Router,
-        private platformDetectorService: PlatformDetectorService
+        private router: Router
     ) { }
 
     ngOnInit(): void {
